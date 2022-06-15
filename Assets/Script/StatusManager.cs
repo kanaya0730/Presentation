@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class StatusManager : MonoBehaviour
 {
+	/// <summary>MAX体力</summary>
 	[Header("MAX体力")]
 	public int maxHp = 1000;
+	/// <summary>MAX魔力</summary>
 	[Header("MAX魔力")] 
 	public int maxMp = 800;
 	const int maxExp = 1000;
@@ -292,7 +294,7 @@ public class StatusManager : MonoBehaviour
 		_Exptext.text = "現在の獲得経験値: " + Exp.ToString();
 		_SkillPoint.text = "現在の所持スキルポイント: " + clickCount.ToString() + " P";
 
-		_Enemynumber.text = "残り" + Enemynumber.ToString() + "/8";
+		_Enemynumber.text = "残り" + Enemynumber.ToString() + "/8体";
 
 		Hpslider.maxValue = maxHp;
 		Mpslider.maxValue = maxMp;
@@ -1176,7 +1178,7 @@ public class StatusManager : MonoBehaviour
 	}
 	public void ItemPotion()
     {
-		if(coin >= 60 && Potion == false)
+		if(coin >= 50 && Potion == false)
         {
 			Potion = true;
 			coin -= 50;
@@ -1184,7 +1186,7 @@ public class StatusManager : MonoBehaviour
 	}
 	public void ItemHighPotion()
     {
-		if (coin >= 100 && HighPotion == false)
+		if (coin >= 80 && HighPotion == false)
 		{
 			HighPotion = true;
 			coin -= 80;
@@ -1192,7 +1194,7 @@ public class StatusManager : MonoBehaviour
 	}
 	public void ItemFullPotion()
     {
-		if (coin >= 200 && FullPotion == false)
+		if (coin >= 150 && FullPotion == false)
 		{
 			FullPotion = true;
 			coin -= 150;
@@ -1208,10 +1210,6 @@ public class StatusManager : MonoBehaviour
 			Debug.Log("HPを200回復");
 			Debug.Log("現在のHPは" + GameObject.Find("SwordWarrior").GetComponent<PlayerControll>().currentHp);
 		}
-		else
-        {
-			Debug.Log("アイテムを持っていない");
-        }
 	}
 	public void UseItemHighPotion()　//500回復
 	{
@@ -1223,10 +1221,6 @@ public class StatusManager : MonoBehaviour
 			Debug.Log("HPを500回復");
 			Debug.Log("現在のHPは" + GameObject.Find("SwordWarrior").GetComponent<PlayerControll>().currentHp);
 		}
-		else
-		{
-			Debug.Log("アイテムを持っていない");
-		}
 	}
 	public void UseItemFullPotion()　//全回復
 	{
@@ -1237,10 +1231,6 @@ public class StatusManager : MonoBehaviour
 			Hpslider.value = GameObject.Find("SwordWarrior").GetComponent<PlayerControll>().currentHp;
 			Debug.Log("HPを1000回復");
 			Debug.Log("現在のHPは" + GameObject.Find("SwordWarrior").GetComponent<PlayerControll>().currentHp);
-		}
-		else
-		{
-			Debug.Log("アイテムを持っていない");
 		}
 	}
 }

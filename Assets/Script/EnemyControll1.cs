@@ -8,7 +8,7 @@ public class EnemyControll1 : MonoBehaviour
 	private bool hasAniComp = false;
 
 	private bool EnemyDeth = false;
-	private const int maxHp = 10000;
+	private const int maxHp = 500;
 	private const int minHp = 0;
 	private int currentHp;
 
@@ -96,8 +96,13 @@ public class EnemyControll1 : MonoBehaviour
 			EnemyDeth = true;
 			if (CheckAniClip("dead") == false) return;
 
-			GetComponent<Animation>().CrossFade("dead", 0.2f);
 			GameObject.Find("StatusManager").GetComponent<StatusManager>().EXP();
+			GameObject.Find("StatusManager").GetComponent<StatusManager>().SkillPoint();
+			GameObject.Find("StatusManager").GetComponent<StatusManager>().Coin();
+			GameObject.Find("StatusManager").GetComponent<StatusManager>().EnemyDeath();
+			GetComponent<Animation>().CrossFade("dead", 0.2f);
+			GameObject.Find("UIManager").GetComponent<TextWritten>().hpslider1.SetActive(false);
+			GameObject.Find("UIManager").GetComponent<TextWritten>().EnemeyNameText1.SetActive(false);
 			Destroy(gameObject, 4.5f);
 		}
 	}
@@ -132,6 +137,8 @@ public class EnemyControll1 : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Player" && currentHp >= 1)
 		{
+			GameObject.Find("UIManager").GetComponent<TextWritten>().hpslider1.SetActive(true);
+			GameObject.Find("UIManager").GetComponent<TextWritten>().EnemeyNameText1.SetActive(true);
 
 			if (CheckAniClip("attack_short_001") == false) return;
 

@@ -265,14 +265,11 @@ public class TextWritten : MonoBehaviour
         GameObject.Find("StatusManager").GetComponent<StatusManager>()._SkillPoint.enabled = true;
         GameObject.Find("StatusManager").GetComponent<StatusManager>()._Exptext.enabled = true;
         GameObject.Find("StatusManager").GetComponent<StatusManager>()._Cointext.enabled = true;
-        GameObject.Find("StatusManager").GetComponent<StatusManager>()._Enemynumber.enabled = true;
         GameObject.Find("UIManager").GetComponent<UIMessageText>().talkPanel.SetActive(false);
         GameObject.Find("UIManager").GetComponent<UIMessageText>().PlayerName.enabled = true;
         GameObject.Find("StatusManager").GetComponent<StatusManager>().LvText1.enabled = true;
         GameObject.Find("StatusManager").GetComponent<StatusManager>().Hpslider.enabled = true;
         GameObject.Find("StatusManager").GetComponent<StatusManager>().Mpslider.enabled = true;
-
-        Enemy.SetActive(true);
     }
     IEnumerator MainScene()　//チュートリアルクリア
     {
