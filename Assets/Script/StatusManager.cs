@@ -279,11 +279,11 @@ public class StatusManager : MonoBehaviour
         {
 			StartCoroutine("ClearScene");
         }
-		HpText.text = maxHp.ToString();
-		MpText.text = maxMp.ToString();
-		StrText.text = STR.ToString();
-		VitText.text = VIT.ToString();
-		AgiText.text = AGI.ToString();
+		HpText.text = "0 + " + maxHp.ToString();
+		MpText.text = "0 + " + maxMp.ToString();
+		StrText.text = "0 + " + STR.ToString();
+		VitText.text = "0 + " + VIT.ToString();
+		AgiText.text = "0 + " + AGI.ToString();
 		countText.text = clickCount.ToString();
 
 		LvText.text = Lv.ToString();
